@@ -1,8 +1,21 @@
 import React from "react";
 import ReactDom from "react-dom";
-
-function MyFistComponent() {
-  return <div>Hello</div>;
+import { ChakraProvider } from "@chakra-ui/react";
+import { SearchBar } from "./components/SearchBar";
+function App() {
+  return (
+    <div
+      style={{
+        height: "100vh",
+        width: "100vw",
+        backgroundImage: "",
+      }}
+    >
+      <ChakraProvider>
+        <SearchBar />
+      </ChakraProvider>
+    </div>
+  );
 }
 
-ReactDom.render(<MyFistComponent />, document.getElementById("root"));
+ReactDom.render(<App />, document.getElementById("root"));
