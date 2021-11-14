@@ -1,21 +1,22 @@
-import React from "react";
+
 import ReactDom from "react-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import { SearchBar } from "./components/SearchBar";
-function App() {
-  return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100vw",
-        backgroundImage: "",
-      }}
-    >
-      <ChakraProvider>
-        <SearchBar />
-      </ChakraProvider>
-    </div>
-  );
-}
+import { Index } from "./pages/Index"
+import { BookDetail } from "./pages/BookDetail"
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+ReactDom.render(
+  <ChakraProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="book/:bookId" element={<BookDetail />} />
+      </Routes>
+    </BrowserRouter>
 
-ReactDom.render(<App />, document.getElementById("root"));
+
+  </ChakraProvider>
+  , document.getElementById("root"));
