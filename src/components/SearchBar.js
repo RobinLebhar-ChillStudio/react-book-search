@@ -1,25 +1,29 @@
-import { InputGroup, InputLeftElement, Input, InputRightElement, Button } from "@chakra-ui/react";
+import {
+  InputGroup,
+  InputLeftElement,
+  Input,
+  InputRightElement,
+  Button,
+} from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { Icon } from "@chakra-ui/react"
-import { useState } from "react"
-import { AiOutlineEnter } from 'react-icons/ai';
+import { Icon } from "@chakra-ui/react";
+import { useState } from "react";
+import { AiOutlineEnter } from "react-icons/ai";
 export function SearchBar({ onSubmit }) {
-
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
   const handleOnKeyPress = (e) => {
-
     if (e.key === "Enter") {
-      onSubmit(searchTerm)
+      onSubmit(searchTerm);
     }
-  }
+  };
 
   const handleOnClick = () => {
-    onSubmit(searchTerm)
-  }
+    onSubmit(searchTerm);
+  };
 
   const handleInputChange = (e) => {
-    setSearchTerm(e.target.value)
-  }
+    setSearchTerm(e.target.value);
+  };
   return (
     <InputGroup>
       <InputLeftElement
@@ -27,14 +31,20 @@ export function SearchBar({ onSubmit }) {
         children={<SearchIcon color="gray.300" />}
       />
       <Input
-        bg='white'
+        bg="white"
         type="text"
+        value={searchTerm}
         onChange={handleInputChange}
         onKeyPress={handleOnKeyPress}
-        placeholder="Search a book, ex: Harry Potter and the phoenix order"
+        placeholder="Ex: Harry Potter"
       />
-      <InputRightElement width="15%">
-        <Button onClick={handleOnClick} leftIcon={<Icon as={AiOutlineEnter} />} h="1.75rem" size="sm" >
+      <InputRightElement w="6rem" pr={2}>
+        <Button
+          disabled={!searchTerm}
+          onClick={handleOnClick}
+          leftIcon={<Icon as={AiOutlineEnter} />}
+          h="1.75rem"
+        >
           Search
         </Button>
       </InputRightElement>

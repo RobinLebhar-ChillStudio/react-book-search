@@ -1,13 +1,8 @@
-
 import ReactDom from "react-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import { Index } from "./pages/Index"
-import { BookDetail } from "./pages/BookDetail"
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
+import { Index } from "./pages/Index";
+import { BookDetail } from "./pages/BookDetail";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 ReactDom.render(
   <ChakraProvider>
     <BrowserRouter>
@@ -16,7 +11,6 @@ ReactDom.render(
         <Route path="book/:bookId" element={<BookDetail />} />
       </Routes>
     </BrowserRouter>
-
-
-  </ChakraProvider>
-  , document.getElementById("root"));
+  </ChakraProvider>,
+  document.getElementById("root")
+);
